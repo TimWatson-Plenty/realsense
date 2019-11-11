@@ -66,6 +66,10 @@ class DeviceManager:
         cv2.imshow("image", cv2.cvtColor(img, cv2.COLOR_BGR2RGB));
         cv2.waitKey();
 
+    def save_color_image(self, device_serial):
+        img = self.capture_color_array(device_serial)
+        cv2.imwrite('color_img.jpg', cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+
     def capture_depth_array(self, device_serial):
         """
                returns a numpy array for depth images for a specified device
